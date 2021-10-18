@@ -8,7 +8,7 @@ const config = {
     './example/src/index.js'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
   },
   module: {
@@ -32,7 +32,7 @@ const config = {
     }
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist')
+    contentBase: path.resolve(__dirname, 'public')
   }
 };
 
