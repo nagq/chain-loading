@@ -111,10 +111,31 @@ const Loader = function(options) {
     }
 
     if (loadState.loaded) {
-      return render(loadState.loaded, {
-        ...props,
-        ref
+      if (!options.debug) {
+        return render(loadState.loaded, {
+          ...props,
+          ref
+        })
+      }
+
+      const { loaded, loading, ...attrs } = loadState;
+      const dataAttrs = {
+        'data-name': options.name
+      };
+      Object.keys(attrs).map((key) => {
+        return dataAttrs[`data-${key}`] = attrs[key];
       });
+
+      return (
+        <div {...dataAttrs}>
+          {
+            render(loaded, {
+              ...props,
+              ref
+            })
+          }
+        </div>
+      );
     }
 
     return null;

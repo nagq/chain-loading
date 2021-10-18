@@ -12,6 +12,7 @@ export default (name) => {
 
       const Cls = ChainLoading({
         name,
+        debug: true,
         loaders: [
           {
             loader: () => import(
