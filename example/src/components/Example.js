@@ -4,7 +4,7 @@ import slot from '../slot';
 const Example = React.forwardRef((props = {}, ref) => {
   return (
     <div>
-      <h1>Example default</h1>
+      <h1>Example default, { props.name }</h1>
       <button ref={ref}>submit</button>
     </div>
   );

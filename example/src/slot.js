@@ -1,6 +1,6 @@
 import React from 'react';
 import ChainLoading from 'chain-loading';
-import {useConfig} from './config';
+import { useConfig } from './config';
 
 export default (name) => {
   return (ComponentClass) => {
@@ -10,7 +10,7 @@ export default (name) => {
       const pack = data[name] || {};
       const key = pack.package || name;
 
-      const Cls = ChainLoading({
+      const Loaded = ChainLoading({
         name,
         debug: true,
         loaders: [
@@ -60,7 +60,7 @@ export default (name) => {
           }
         ],
       });
-      return <Cls {...props} ref={ref}></Cls>
+      return React.createElement(Loaded, { ...props, ref});
     });
     Comp.displayName = name + ' [slot]';
     return Comp;
